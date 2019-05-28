@@ -33,5 +33,3 @@ case class BasketballServiceImpl(players: Set[BasketballPlayer]) extends GameSer
     player.head
   }
 }
-
-
