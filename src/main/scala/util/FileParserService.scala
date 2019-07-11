@@ -9,7 +9,7 @@ object FileParserService {
   import scala.io._
 
   def validateFilesFormat(files: List[String]): Unit = {
-    val fileFormat = "\\w+\\.(txt)"
+    val fileFormat = "(.*(\\w*\\.{1}txt))"
 
     if (files.count(s => !s.matches(fileFormat)) > 0) throw new IOException("Wrong file format.")
   }
@@ -28,7 +28,7 @@ object FileParserService {
 
     def parseBasketballFile(filePath: String): Set[BasketballPlayer] = {
 
-      val source = Source.fromResource(filePath)
+      val source = Source.fromFile(filePath)
       val lines = source.getLines().toList
       source.close()
       val header = lines.head
@@ -63,7 +63,7 @@ object FileParserService {
 
     def parseHandballFile(filePath: String): Set[HandballPlayer] = {
 
-      val source = Source.fromResource(filePath)
+      val source = Source.fromFile(filePath)
       val lines = source.getLines().toList
       source.close()
       val header = lines.head
