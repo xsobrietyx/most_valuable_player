@@ -6,8 +6,10 @@ import testutils.UnitSpec
 import util.FileParserService._
 
 class FileParserServiceSpec extends UnitSpec {
-  private lazy val basketballFilePath = "basketballexample.txt"
-  private lazy val handballFilePath = "handballexample.txt"
+  private lazy val basketballFilePath = canonical + "basketballexample.txt"
+  private lazy val handballFilePath = canonical + "handballexample.txt"
+  private lazy val wrongFileData = canonical + "wrongfiledata.txt"
+  private lazy val wrongInnerData = canonical + "wronginnerdata.txt"
 
   "Parsing of basketball file" should "return correct number of parsed entities" in {
     val basketballGame = parseBasketballFiles(List(basketballFilePath))
@@ -29,7 +31,7 @@ class FileParserServiceSpec extends UnitSpec {
   }
 
    "Wrong data format within basketball files" should "throw IOException" in {
-     val fileWithWrongData = List("wrongfiledata.txt")
+     val fileWithWrongData = List(wrongFileData)
      val expectedMessage = "Wrong file data."
 
      the [IOException] thrownBy parseBasketballFiles(fileWithWrongData) should have message expectedMessage
@@ -43,14 +45,14 @@ class FileParserServiceSpec extends UnitSpec {
   }
 
   "Wrong data format within handball files related to the header statement" should "throw IOException" in {
-    val fileWithWrongData = List("wrongfiledata.txt")
+    val fileWithWrongData = List(wrongFileData)
     val expectedMessage = "Wrong file data."
 
     the [IOException] thrownBy parseHandballFiles(fileWithWrongData) should have message expectedMessage
   }
 
   "Wrong data format within handball files related to the entity mapping" should "throw IOException" in {
-    val fileWithWrongData = List("wronginnerdata.txt")
+    val fileWithWrongData = List(wrongInnerData)
     val expectedMessage = "Wrong file data."
 
     the [IOException] thrownBy parseHandballFiles(fileWithWrongData) should have message expectedMessage
