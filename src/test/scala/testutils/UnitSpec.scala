@@ -4,10 +4,6 @@ import java.io.File
 
 import org.scalatest.{BeforeAndAfterAll, FlatSpec, Matchers}
 
-class UnitSpec extends FlatSpec with Matchers with BeforeAndAfterAll {
-  protected var canonical: String = ""
-
-  override protected def beforeAll(): Unit = {
-    canonical = new File(".").getCanonicalPath + "/src/main/resources/"
-  }
+class UnitSpec extends FlatSpec with Matchers {
+  protected lazy val canonical: String = new File(".").getCanonicalPath + "/src/main/resources/"
 }
