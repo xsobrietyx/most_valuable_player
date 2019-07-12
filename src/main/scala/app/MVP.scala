@@ -25,9 +25,9 @@ object MVP extends App {
       val filePath = file.getCanonicalPath
       lines.head match {
         case games._1 =>
-          gamesMap += (BASKETBALL -> (gamesMap.getOrElse(BASKETBALL, List(filePath)) :+ filePath))
+          gamesMap += (BASKETBALL -> (gamesMap.getOrElse(BASKETBALL, List()) :+ filePath))
         case games._2 =>
-          gamesMap += (HANDBALL -> (gamesMap.getOrElse(HANDBALL, List(filePath)) :+ filePath))
+          gamesMap += (HANDBALL -> (gamesMap.getOrElse(HANDBALL, List()) :+ filePath))
       }
     })
 
