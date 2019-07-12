@@ -1,15 +1,14 @@
-package util
+package testSpecs
 
 import java.io.IOException
 
-import testutils.UnitSpec
 import util.FileParserService._
 
 class FileParserServiceSpec extends UnitSpec {
-  private lazy val basketballFilePath = canonical + "basketballexample.txt"
-  private lazy val handballFilePath = canonical + "handballexample.txt"
-  private lazy val wrongFileData = canonical + "wrongfiledata.txt"
-  private lazy val wrongInnerData = canonical + "wronginnerdata.txt"
+  private lazy val basketballFilePath = "basketballexample.txt" toCan
+  private lazy val handballFilePath = "handballexample.txt" toCan
+  private lazy val wrongFileData = "wrongfiledata.txt" toCan
+  private lazy val wrongInnerData = "wronginnerdata.txt" toCan
 
   "Parsing of basketball file" should "return correct number of parsed entities" in {
     val basketballGame = parseBasketballFiles(List(basketballFilePath))

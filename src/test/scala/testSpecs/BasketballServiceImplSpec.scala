@@ -1,10 +1,9 @@
-package impl
+package testSpecs
 
-import testutils.UnitSpec
 import util.FileParserService.parseBasketballFiles
 
 class BasketballServiceImplSpec extends UnitSpec {
-  private lazy val basketballFilePath = canonical + "basketballexample.txt"
+  private lazy val basketballFilePath = "basketballexample.txt" toCan
 
   "The winner basketball team" should "should be verified correctly" in {
     val basketballGame = parseBasketballFiles(List(basketballFilePath))
