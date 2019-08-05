@@ -2,7 +2,7 @@ package util
 
 import java.io.IOException
 
-import impl.{BasketballPlayer, BasketballServiceImpl, HandballPlayer, HandballServiceImpl}
+import impl.{BasketballPlayer, BasketballGames, HandballPlayer, HandballGames}
 
 object FileParserService {
 
@@ -22,7 +22,7 @@ object FileParserService {
     }
   }
 
-  def parseBasketballFiles(files: List[String]): BasketballServiceImpl = {
+  def parseBasketballFiles(files: List[String]): BasketballGames = {
 
     validateFilesFormat(files)
 
@@ -54,10 +54,10 @@ object FileParserService {
     }
 
     val players = files.flatMap(p => parseBasketballFile(p)).toSet
-    impl.BasketballServiceImpl(players)
+    impl.BasketballGames(players)
   }
 
-  def parseHandballFiles(files: List[String]): HandballServiceImpl = {
+  def parseHandballFiles(files: List[String]): HandballGames = {
 
     validateFilesFormat(files)
 
@@ -88,6 +88,6 @@ object FileParserService {
     }
 
     val players = files.flatMap(p => parseHandballFile(p)).toSet
-    HandballServiceImpl(players)
+    HandballGames(players)
   }
 }

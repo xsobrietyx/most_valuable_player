@@ -2,7 +2,7 @@ package testSpecs
 
 import util.FileParserService.parseHandballFiles
 
-class HandballServiceImplSpec extends UnitSpec {
+class HandballGamesSpec extends UnitSpec {
   private lazy val handballFilePath = "handballexample.txt" toCan
 
   "The winner handball team" should "should be verified correctly" in {

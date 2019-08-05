@@ -4,9 +4,9 @@ object MVP extends App {
 
   import java.io.File
 
-  import interf.Games._
+  import interf.GameTypes._
 
-  type groupingType = Map[Games, List[String]]
+  type groupingType = Map[GameTypes, List[String]]
 
   /**
     * Grouping file names by game type. First line of file is the game type descriptor.

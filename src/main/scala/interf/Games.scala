@@ -1,8 +1,8 @@
 package interf
 
-object Games extends Enumeration {
-  type Games = Value
+trait Games[A] {
+  def players: Set[A]
 
-  val BASKETBALL: this.Value = Value("BASKETBALL")
-  val HANDBALL: this.Value = Value("HANDBALL")
+  def findTeamWon: String
+  def findMostValuablePlayer: A
 }
